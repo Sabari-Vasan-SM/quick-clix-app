@@ -37,7 +37,6 @@ class QuickclixBrowserPage extends StatefulWidget {
 
 class _QuickclixBrowserPageState extends State<QuickclixBrowserPage> {
   static final Uri _homeUri = Uri.parse('https://quickclix.vasan.tech/');
-  InAppWebViewController? _controller;
   bool _isFirstPageLoaded = false;
 
   late InAppWebViewSettings settings;
@@ -66,9 +65,6 @@ class _QuickclixBrowserPageState extends State<QuickclixBrowserPage> {
           InAppWebView(
             initialUrlRequest: URLRequest(url: WebUri.uri(_homeUri)),
             initialSettings: settings,
-            onWebViewCreated: (controller) {
-              _controller = controller;
-            },
             onLoadStop: (controller, url) async {
               if (!mounted) return;
               setState(() {
@@ -106,14 +102,14 @@ class _QuickclixBrowserPageState extends State<QuickclixBrowserPage> {
                     saveInPublicStorage: true,
                   );
 
-                  if (mounted && taskId != null) {
+                  if (context.mounted && taskId != null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Downloading file...')),
                     );
                   }
                 }
               } else {
-                if (mounted) {
+                if (context.mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text(

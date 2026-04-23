@@ -1,11 +1,11 @@
 {
-    "name": "quickclix",
-    "short_name": "quickclix",
+    "name": "Quickclix",
+    "short_name": "Quickclix",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Quickclix mobile app.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

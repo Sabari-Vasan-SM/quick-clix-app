@@ -1,0 +1,1 @@
+enum UploadKind { text, file }
